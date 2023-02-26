@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ***** COMMON ***** -->
+  <xacro:property name="M_PI" value="3.14159"/>
+
+  <!-- ***** BASE ***** -->
+  <xacro:property name="M_SCALE" value="0.01"/>
+  <xacro:property name="BASE_RADIUS" value="0.18"/>
+  <xacro:property name="BASE_HEIGHT" value="0.05"/>
+  <xacro:property name="BASE_MASS" value="20"/>
+
+  <!-- ***** WHEEL ***** -->
+  <xacro:property name="WHEEL_RADIUS" value="0.04"/>
+  <xacro:property name="WHEEL_HEIGHT" value="0.04"/>
+  <xacro:property name="WHEEL_MASS" value="1.26"/>
+  <xacro:property name="ROLLER_HEIGHT" value="0.01899975"/>
+  <xacro:property name="ROLLER_RADIUS" value="0.006233225"/>
+  <xacro:property name="ROLLER_MASS" value="0.1"/>
+  <xacro:property name="WHEEL_SCALE" value="1.33297475178"/>
+
+</robot>

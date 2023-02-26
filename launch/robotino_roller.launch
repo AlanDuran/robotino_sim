@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+    <param name="/use_sim_time" value="true"/>
+    <param name="robot_description" 
+    command="cat '$(find robotino_roller)/description/urdf/robotino.urdf'" />
+        
+    <group ns="robotino">
+
+        <arg name="robot_name" default="robotino" />
+        
+        <rosparam file="$(find robotino_roller)/config/robotino_control.yaml" command="load" ns="/robotino"/>
+        
+        <param name="/robotino/robotino_roller" 
+        command="cat '$(find robotino_roller)/description/urdf/robotino.urdf'" />
+        
+        <node name="urdf_spawner_robotino" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-urdf -model robotino -param /robotino/robotino_roller"/>
+        
+        <node name="robot_state_publisher_robotino" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+            <param name="publish_frequency" type="double" value="5.0" />
+        </node>
+        
+        <node name="robotino_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="--namespace=/robotino 
+                              /robotino/joint_state_controller 
+                              /robotino/wheel0_joint_velocity_controller
+                              /robotino/wheel1_joint_velocity_controller
+                              /robotino/wheel2_joint_velocity_controller">
+        </node>
+    
+    </group>
+
+</launch>
