@@ -9,12 +9,14 @@
 			</xacro:inertial_cylinder>
 			<visual>
 				<geometry>
-					<mesh filename="package://robotino_roller/description/mesh/rim.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+					<mesh filename="package://robotino_roller/description/mesh/rim01.stl"/>
+					<!-- <mesh filename="package://robotino_roller/description/mesh/roda.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
 				</geometry>
 			</visual>
 			<collision>
 				<geometry>
-					<mesh filename="package://robotino_roller/description/mesh/rim.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+					<mesh filename="package://robotino_roller/description/mesh/rim01.stl"/>
+					<!-- <mesh filename="package://robotino_roller/description/mesh/roda.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
 				</geometry>
 			</collision>
 		</link>
@@ -61,31 +63,29 @@
 	<xacro:macro name="roller_macro" params="parent name xyz rpy">
 
 		<link name="roller_${name}_${parent}_link">
-			<!-- <inertial>
-				<mass value="0.001"/>
-				<inertia ixx="3.976186554728152e-08" ixy="0" ixz="0" iyy="3.976186554728152e-08" iyz="0" izz="2.092071223656384e-08"/>
-			</inertial> -->
 			<xacro:inertial_cylinder mass="${ROLLER_MASS}" height="${ROLLER_HEIGHT*WHEEL_SCALE}" radius="${ROLLER_RADIUS*WHEEL_SCALE}">
-				<origin xyz="0 0 ${-0.000343*WHEEL_SCALE}"/>
+				<origin xyz="0 0 0"/>
 			</xacro:inertial_cylinder>
 			<visual>
 				<geometry>
-					<mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+					<mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+					<!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
 				</geometry>
 			</visual>
 			<collision>
 				<geometry>
-					<mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+					<mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+					<!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
 				</geometry>
 			</collision>
 		</link>
 
 		<gazebo reference="roller_${name}_${parent}_link">
 			<material>Gazebo/Black</material>
-			<!-- <mu1 value="2.5" />
+			<mu1 value="2.5" />
 			<mu2 value="2.5" />
 			<kp value="5000" />
-			<kd value="10" /> -->
+			<kd value="10" />
 		</gazebo>
 
 		<joint name="roller_${name}_${parent}_joint" type="continuous">

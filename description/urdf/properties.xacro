@@ -17,6 +17,5 @@
   <xacro:property name="ROLLER_HEIGHT" value="0.01899975"/>
   <xacro:property name="ROLLER_RADIUS" value="0.006233225"/>
   <xacro:property name="ROLLER_MASS" value="0.1"/>
-  <xacro:property name="WHEEL_SCALE" value="1.33297475178"/>
-
+  <xacro:property name="WHEEL_SCALE" value="1.33297475178"/> <!-- 1.33297475178 -->
 </robot>

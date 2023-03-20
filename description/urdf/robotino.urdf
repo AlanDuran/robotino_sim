@@ -4,6 +4,7 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="robotino">
+  <!-- 1.33297475178 -->
   <!-- Used for fixing robot to the world in Gazebo -->
   <link name="base_link">
     <!-- <xacro:inertial_cylinder mass="${WHEEL_MASS}" height="${WHEEL_HEIGHT}" radius="${WHEEL_RADIUS}">
@@ -17,11 +18,11 @@
       <inertia ixx="0.16616666666666666" ixy="0.0" ixz="0.0" iyy="0.16616666666666666" iyz="0.0" izz="0.32399999999999995"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <!-- <origin xyz="0 0 ${BASE_HEIGHT}" rpy="0 0 0" /> -->
       <origin rpy="0 0 1.570795" xyz="0.01 0 0"/>
       <geometry>
-        <cylinder length="0.05" radius="0.18"/>
-        <mesh filename="package://robotino_sim/description/meshes/robotino_base.dae" scale="0.01 0.01 0.01"/>
+        <!-- <cylinder radius="${BASE_RADIUS}" length="${BASE_HEIGHT}"/> -->
+        <mesh filename="package://robotino_roller/description/mesh/robotino_base.dae" scale="0.01 0.01 0.01"/>
       </geometry>
     </visual>
     <collision>
@@ -48,12 +49,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/rim.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/rim01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/roda.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/rim.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/rim01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/roda.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
@@ -69,27 +72,29 @@
   </gazebo>
   <link name="roller_upfront_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_upfront_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_upfront_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -100,27 +105,29 @@
   </joint>
   <link name="roller_rightupfront_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightupfront_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightupfront_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -131,27 +138,29 @@
   </joint>
   <link name="roller_leftupfront_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_leftupfront_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_leftupfront_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -162,27 +171,29 @@
   </joint>
   <link name="roller_rightdownfront_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightdownfront_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightdownfront_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -193,27 +204,29 @@
   </joint>
   <link name="roller_lefttdownfront_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_lefttdownfront_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_lefttdownfront_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -224,27 +237,29 @@
   </joint>
   <link name="roller_upback_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_upback_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_upback_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -255,27 +270,29 @@
   </joint>
   <link name="roller_rightupback_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightupback_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightupback_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -286,27 +303,29 @@
   </joint>
   <link name="roller_leftupback_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_leftupback_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_leftupback_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -317,27 +336,29 @@
   </joint>
   <link name="roller_rightdownback_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightdownback_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightdownback_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -348,27 +369,29 @@
   </joint>
   <link name="roller_lefttdownback_wheel0_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_lefttdownback_wheel0_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_lefttdownback_wheel0_joint" type="continuous">
     <parent link="wheel0_link"/>
@@ -395,12 +418,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/rim.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/rim01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/roda.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/rim.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/rim01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/roda.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
@@ -416,27 +441,29 @@
   </gazebo>
   <link name="roller_upfront_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_upfront_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_upfront_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -447,27 +474,29 @@
   </joint>
   <link name="roller_rightupfront_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightupfront_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightupfront_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -478,27 +507,29 @@
   </joint>
   <link name="roller_leftupfront_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_leftupfront_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_leftupfront_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -509,27 +540,29 @@
   </joint>
   <link name="roller_rightdownfront_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightdownfront_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightdownfront_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -540,27 +573,29 @@
   </joint>
   <link name="roller_lefttdownfront_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_lefttdownfront_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_lefttdownfront_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -571,27 +606,29 @@
   </joint>
   <link name="roller_upback_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_upback_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_upback_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -602,27 +639,29 @@
   </joint>
   <link name="roller_rightupback_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightupback_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightupback_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -633,27 +672,29 @@
   </joint>
   <link name="roller_leftupback_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_leftupback_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_leftupback_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -664,27 +705,29 @@
   </joint>
   <link name="roller_rightdownback_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightdownback_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightdownback_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -695,27 +738,29 @@
   </joint>
   <link name="roller_lefttdownback_wheel1_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_lefttdownback_wheel1_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_lefttdownback_wheel1_joint" type="continuous">
     <parent link="wheel1_link"/>
@@ -742,12 +787,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/rim.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/rim01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/roda.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/rim.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/rim01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/roda.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
@@ -763,27 +810,29 @@
   </gazebo>
   <link name="roller_upfront_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_upfront_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_upfront_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -794,27 +843,29 @@
   </joint>
   <link name="roller_rightupfront_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightupfront_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightupfront_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -825,27 +876,29 @@
   </joint>
   <link name="roller_leftupfront_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_leftupfront_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_leftupfront_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -856,27 +909,29 @@
   </joint>
   <link name="roller_rightdownfront_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightdownfront_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightdownfront_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -887,27 +942,29 @@
   </joint>
   <link name="roller_lefttdownfront_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_lefttdownfront_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_lefttdownfront_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -918,27 +975,29 @@
   </joint>
   <link name="roller_upback_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_upback_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_upback_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -949,27 +1008,29 @@
   </joint>
   <link name="roller_rightupback_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightupback_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightupback_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -980,27 +1041,29 @@
   </joint>
   <link name="roller_leftupback_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_leftupback_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_leftupback_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -1011,27 +1074,29 @@
   </joint>
   <link name="roller_rightdownback_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_rightdownback_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_rightdownback_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>
@@ -1042,27 +1107,29 @@
   </joint>
   <link name="roller_lefttdownback_wheel2_link">
     <inertial>
-      <origin xyz="0 0 -0.00045721033986053993"/>
+      <origin xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="7.0710067480021846e-06" ixy="0.0" ixz="0.0" iyy="7.0710067480021846e-06" iyz="0.0" izz="3.4517509961418232e-06"/>
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotino_roller/description/mesh/roller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://robotino_roller/description/mesh/roller01.stl"/>
+        <!-- <mesh filename="package://robotino_roller/description/mesh/rolamento.stl" scale="${WHEEL_SCALE} ${WHEEL_SCALE} ${WHEEL_SCALE}"/> -->
       </geometry>
     </collision>
   </link>
   <gazebo reference="roller_lefttdownback_wheel2_link">
     <material>Gazebo/Black</material>
-    <!-- <mu1 value="2.5" />
-			<mu2 value="2.5" />
-			<kp value="5000" />
-			<kd value="10" /> -->
+    <mu1 value="2.5"/>
+    <mu2 value="2.5"/>
+    <kp value="5000"/>
+    <kd value="10"/>
   </gazebo>
   <joint name="roller_lefttdownback_wheel2_joint" type="continuous">
     <parent link="wheel2_link"/>

@@ -20,7 +20,7 @@
         
         <node name="robot_state_publisher_robotino" pkg="robot_state_publisher" type="robot_state_publisher"
         respawn="false" output="screen">
-            <param name="publish_frequency" type="double" value="5.0" />
+            <param name="publish_frequency" type="double" value="100.0" />
         </node>
         
         <node name="robotino_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
